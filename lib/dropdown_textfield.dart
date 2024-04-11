@@ -1037,10 +1037,11 @@ class _SingleSelectionState extends State<SingleSelection> {
                   child: Container(
                     width: double.infinity,
                     padding: EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        bottom: widget.listPadding.bottom,
-                        top: widget.listPadding.top),
+                      left: 10,
+                      right: 10,
+                      bottom: widget.listPadding.bottom,
+                      top: widget.listPadding.top,
+                    ),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: FittedBox(
@@ -1331,7 +1332,8 @@ class _KeyboardVisibilityBuilderState extends State<KeyboardVisibilityBuilder>
 
   @override
   void didChangeMetrics() {
-    final bottomInset = View.of(context,).viewInsets.bottom;
+    // final bottomInset = View.of(context,).viewInsets.bottom;
+    final bottomInset = WidgetsBinding.instance.window.viewInsets.bottom;
     final newValue = bottomInset > 0.0;
     if (newValue != _isKeyboardVisible) {
       setState(() {
